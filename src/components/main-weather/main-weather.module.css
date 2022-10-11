@@ -1,0 +1,29 @@
+.main-weather {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+.temperature {
+    font-size: 6em;
+    line-height: 1em;
+    font-weight: 200;
+}
+
+.condition {
+    font-size: 1.5em;
+}
+
+.highlow {
+    font-size: 1.4em;
+}
+
+.hidden {
+    display:none;
+}
