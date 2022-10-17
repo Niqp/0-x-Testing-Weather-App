@@ -1,19 +1,43 @@
+.main-weather--container {
+    position: fixed;
+    top: 50px;
+    /* margin-top: 50px; */
+}
+
 .main-weather {
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    min-width: 300px;
     text-align: center;
-    margin-top: 50px;
+    /* overflow: hidden; */
+    transition: ease 0.1s;
+    max-height: 200px;
 }
+
+.main-weather--compact {
+    flex-flow: row wrap;
+    justify-content: center;
+    /* position: fixed;
+    top: 20px; */
+    align-items: center;
+    /* height: 50px; */
+}
+
 
 h1 {
     font-size: 2.5em;
+    flex-basis: 100%;
 }
+
 
 .temperature {
     font-size: 6em;
     line-height: 1em;
     font-weight: 200;
+}
+
+.main-weather--compact > .temperature {
+    font-size: 2em;
 }
 
 .condition {
@@ -24,6 +48,27 @@ h1 {
     font-size: 1.4em;
 }
 
+.main-weather--compact > .highlow {
+    display: none;
+}
+
+
 .hidden {
     display:none;
+}
+
+.divider {
+    display: none;
+    border: 0.2px solid white;
+    background-color: white;
+    height: 15px;
+    margin: 0 10px
+}
+
+.main-weather--compact > .divider {
+    display: inline;
+}
+
+.container {
+
 }

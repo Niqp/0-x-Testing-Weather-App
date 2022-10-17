@@ -13,7 +13,17 @@
 .scroll {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  max-width: 1000px;
+  /* position: absolute; */
+  /* top: 0px; */
+  /* height: 1600px; */
+  margin-top: 250px;
+}
+
+.wrapper {
+  height: 130px;
+  /* position: absolute;
+  top: 0px; */
+
 }

@@ -1,14 +1,21 @@
+.ten-day-forecast--container {
+    margin-top: 8px;
+    position: sticky;
+    top: 200px;
+    overflow: hidden;
+
+}
+
 .ten-day-forecast {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background: rgba(255, 255, 255, 0.003);
     border: 0.5px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(2px);
     border-radius: 15px;
     padding: 18px;
-    margin-top: 8px;
     width: 335px;
 }
 
@@ -16,8 +23,11 @@
     display: flex;
     align-self: flex-start;
     align-items: center;
-    font-size: 0.7em;
+    font-size: 0.65em;
     text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+    width: 100%;
 }
 
 .calendar-icon {
@@ -33,6 +43,13 @@ hr {
     border-width: 0.2px;
     background-color: white;
     margin-top: 8px;
+}
+
+.forecast--wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .forecast {

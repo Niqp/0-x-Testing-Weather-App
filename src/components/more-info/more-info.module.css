@@ -1,0 +1,80 @@
+.more-info--container {
+  margin-top: 8px;
+  /* margin-bottom: 300px; */
+  position: sticky;
+  top: 200px;
+}
+
+.more-info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+  gap: 10px;
+}
+
+.more-info--block {
+  display: flex;
+  flex-flow: column nowrap;
+  background: rgba(255, 255, 255, 0.003);
+  border: 0.5px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  border-radius: 15px;
+  padding: 12px;
+  height: 165px;
+  /* width: 50%; */
+  flex: 1 0 48%;
+}
+
+.more-info--content {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.title {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  font-size: 0.65em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  color: gray;
+}
+
+.icon {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.text {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.more-info--content h3 {
+    font-size: 2em;
+}
+
+.bottom-large-text {
+    font-size: 1.25em;
+}
+
+.wind-image {
+    align-self: center;
+    width: 82%;
+    padding-top: 5px;
+}
+
+.wind-arrow {
+    position: absolute;
+    top: 46%;
+    left: 1px;
+    transform: scale(0.85);
+}

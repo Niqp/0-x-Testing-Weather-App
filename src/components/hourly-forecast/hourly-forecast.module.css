@@ -1,23 +1,30 @@
+.hourly-forecast--container {
+    margin-top: 51px;
+    position: sticky;
+    top: 200px;
+    overflow: hidden;
+}
+
 .hourly-forecast {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-grow: 1;
     background: rgba(255, 255, 255, 0.003);
     border: 0.5px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(2px);
     border-radius: 15px;
     padding: 18px;
-    margin-top: 21px;
     width: 335px;
+    overflow: hidden;
+
 }
 
 .title {
     display: flex;
     align-self: flex-start;
     align-items: center;
-    font-size: 0.7em;
+    font-size: 0.65em;
     text-transform: uppercase;
 }
 
@@ -44,6 +51,13 @@ hr {
     gap: 24px;
     font-size: 1.1em;
     margin-top: 14px;
+}
+
+.forecast--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
 }
 
 .day {
