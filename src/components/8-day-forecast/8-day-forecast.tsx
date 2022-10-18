@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import CalenderIcon from "../../assets/icons/calender.png";
 import CloudMoonIcon from "../../assets/icons/cloudmoon.png";
-import styles from "./10-day-forecast.module.css";
+import styles from "./8-day-forecast.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function TenDayForecast() {
+function EightDayForecast(props) {
   const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,7 +24,6 @@ function TenDayForecast() {
         height: "0px",
         duration: 2,
       }).to(`.${styles["ten-day-forecast"]}`, { opacity: 0, duration: 1 });
-
     }, comp);
     return () => ctx.revert();
   }, []);
@@ -34,12 +33,29 @@ function TenDayForecast() {
       <div className={styles["ten-day-forecast"]}>
         <div className={styles.title}>
           <img className={styles["calendar-icon"]} src={CalenderIcon} />
-          <h2>10-Day Forecast</h2>
+          <h2>8-Day Forecast</h2>
         </div>
         {/* <hr /> */}
         <div className={styles["forecast--wrapper"]}>
           <ul className={styles.forecast}>
-            <li className={styles.day}>
+            {props.eightDays.map((entry) => {
+              return (
+                <li className={styles.day}>
+                  <p className={styles.label}>{entry.label}</p>
+                  <div className={styles["icon-and-humidity"]}>
+                    <img src={entry.condition} />
+                    <p className={styles.humidity}>
+                      {entry.humidity !== 0 ? `${entry.humidity}%` : ""}
+                    </p>
+                  </div>
+                  <p className={styles["temp-min"]}>{entry.min}°</p>
+                  <div className={styles["empty-bar"]}></div>
+                  <p className={styles["temp-max"]}>{entry.max}°</p>
+                </li>
+              );
+            })}
+
+            {/* <li className={styles.day}>
               <p>Today</p>
               <div className={styles["icon-and-humidity"]}>
                 <img src={CloudMoonIcon} />
@@ -118,27 +134,7 @@ function TenDayForecast() {
               <p className={styles["temp-min"]}>21°</p>
               <div className={styles["empty-bar"]}></div>
               <p className={styles["temp-max"]}>21°</p>
-            </li>
-            <li className={styles.day}>
-              <p>Today</p>
-              <div className={styles["icon-and-humidity"]}>
-                <img src={CloudMoonIcon} />
-                <p className={styles.humidity}>50%</p>
-              </div>
-              <p className={styles["temp-min"]}>21°</p>
-              <div className={styles["empty-bar"]}></div>
-              <p className={styles["temp-max"]}>21°</p>
-            </li>
-            <li className={styles.day}>
-              <p>Today</p>
-              <div className={styles["icon-and-humidity"]}>
-                <img src={CloudMoonIcon} />
-                <p className={styles.humidity}>50%</p>
-              </div>
-              <p className={styles["temp-min"]}>21°</p>
-              <div className={styles["empty-bar"]}></div>
-              <p className={styles["temp-max"]}>21°</p>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
@@ -146,4 +142,4 @@ function TenDayForecast() {
   );
 }
 
-export default TenDayForecast;
+export default EightDayForecast;

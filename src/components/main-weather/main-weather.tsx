@@ -5,8 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function MainWeather() {
-  const [isCompact, setIsCompact] = useState(false);
+function MainWeather(props) {
   const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,11 +38,11 @@ function MainWeather() {
   return (
     <div ref={comp} className={styles["main-weather--container"]}>
       <div className={styles["main-weather"]}>
-        <h1>Seongnam-si</h1>
-        <p className={styles.temperature}>21°</p>
+        <h1>{props.currentWeather.locationName}</h1>
+        <p className={styles.temperature}>{props.currentWeather.temperature}°</p>
         <div className={styles["divider"]}></div>
-        <p className={styles.condition}>Partly Cloudy</p>
-        <p className={styles.highlow}>H:29° L:15°</p>
+        <p className={styles.condition}>{props.currentWeather.condition}</p>
+        <p className={styles.highlow}>H:{props.currentWeather.high}° L:{props.currentWeather.high}°</p>
       </div>
     </div>
   );

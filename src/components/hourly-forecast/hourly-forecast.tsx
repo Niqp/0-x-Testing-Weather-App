@@ -5,7 +5,7 @@ import styles from "./hourly-forecast.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function HourlyForecast() {
+function HourlyForecast(props) {
   const comp = useRef(null);
 
   useEffect(() => {
@@ -37,7 +37,15 @@ function HourlyForecast() {
         <hr />
         <div className={styles["forecast--wrapper"]}>
           <ul className={styles.forecast}>
-            <li className={styles.day}>
+            {props.hourly.map((entry) => {
+              return (
+                <li className={styles.day}>
+                <p>{entry.label}</p>
+                <img className={styles["weather-img"]} src={entry.condition} />
+                <p className={styles.temp}>{entry.temperature}°</p>
+              </li>
+                )})}
+            {/* <li className={styles.day}>
               <p>Now</p>
               <img className={styles["weather-img"]} src={CloudMoonIcon} />
               <p className={styles.temp}>21°</p>
@@ -61,7 +69,7 @@ function HourlyForecast() {
               <p>1AM</p>
               <img className={styles["weather-img"]} src={CloudMoonIcon} />
               <p className={styles.temp}>19°</p>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

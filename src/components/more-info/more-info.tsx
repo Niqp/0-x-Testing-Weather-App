@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import CalenderIcon from "../../assets/icons/calender.png";
 import CloudMoonIcon from "../../assets/icons/cloudmoon.png";
 import WindImage from "../../assets/more-info--graphics/Group.png";
-import WindArrow from "../../assets/more-info--graphics/wind-arrow.png"
+import WindArrow from "../../assets/more-info--graphics/wind-arrow.png";
 import UVIndex from "../../assets/icons/more-info/uv-index.png";
 import Sunrise from "../../assets/icons/more-info/sunrise.png";
 import Wind from "../../assets/icons/more-info/wind.png";
@@ -13,7 +13,7 @@ import styles from "./more-info.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function MoreInfo() {
+function MoreInfo(props) {
   const comp = useRef(null);
 
   // useEffect(() => {
@@ -48,11 +48,11 @@ function MoreInfo() {
             <h2>UV Index</h2>
           </div>
           <div className={styles["more-info--content"]}>
-            <h3>0</h3>
+            <h3>{props.moreData.uVIndex.number}</h3>
             <div className={styles.text}>
-              <p className={styles["bottom-large-text"]}>Low</p>
+              <p className={styles["bottom-large-text"]}>{props.moreData.uVIndex.text}</p>
               <p className={styles["bottom-small-text"]}>
-                Low for the rest of the day
+                {props.moreData.uVIndex.restOfDay} for the rest of the day
               </p>
             </div>
           </div>
@@ -63,10 +63,10 @@ function MoreInfo() {
             <h2>Sunrise</h2>
           </div>
           <div className={styles["more-info--content"]}>
-            <h3>6:28AM</h3>
+            <h3>{props.moreData.sunrise.time}:00AM</h3>
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}></p>
-              <p className={styles["bottom-small-text"]}>Sunset 6:10PM</p>
+              <p className={styles["bottom-small-text"]}>Sunset {props.moreData.sunrise.sunset}:10PM</p>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ function MoreInfo() {
           </div>
           <div className={styles["more-info--content"]}>
             <img className={styles["wind-image"]} src={WindImage} />
-            <img className={styles["wind-arrow"]} src={WindArrow} />
+            <img className={styles["wind-arrow"]} src={WindArrow} style={{transform: `scale(0.85) rotate(${props.moreData.wind.deg}deg)`}} />
           </div>
         </div>
         <div className={styles["more-info--block"]}>
@@ -86,11 +86,11 @@ function MoreInfo() {
             <h2>Rainfall</h2>
           </div>
           <div className={styles["more-info--content"]}>
-            <h3>0mm</h3>
+            <h3>{props.moreData.rainfall.current}mm</h3>
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}>in last 24h</p>
               <p className={styles["bottom-small-text"]}>
-                4 mm expected in next 24h.
+              {props.moreData.rainfall.next}mm expected in next 24h.
               </p>
             </div>
           </div>
@@ -101,11 +101,11 @@ function MoreInfo() {
             <h2>Feels like</h2>
           </div>
           <div className={styles["more-info--content"]}>
-            <h3>73%</h3>
+            <h3>{props.moreData.feelsLike.current}%</h3>
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}></p>
               <p className={styles["bottom-small-text"]}>
-                Similar to the actual temperature
+              {props.moreData.feelsLike.current ? "Similar to the actual temperature" : "Not similar to the actual temperature"}
               </p>
             </div>
           </div>
@@ -116,11 +116,11 @@ function MoreInfo() {
             <h2>Humidity</h2>
           </div>
           <div className={styles["more-info--content"]}>
-            <h3>73%</h3>
+            <h3>{props.moreData.humidity.current}%</h3>
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}></p>
               <p className={styles["bottom-small-text"]}>
-                The dew point is 16° right now.
+                The dew point is {props.moreData.humidity.dew}° right now.
               </p>
             </div>
           </div>

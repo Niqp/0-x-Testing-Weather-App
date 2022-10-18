@@ -1,77 +1,77 @@
 .hourly-forecast--container {
-    margin-top: 51px;
-    position: sticky;
-    top: 200px;
-    overflow: hidden;
+  margin-top: 51px;
+  position: sticky;
+  top: 200px;
+  overflow: hidden;
 }
 
 .hourly-forecast {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    flex-grow: 1;
-    background: rgba(255, 255, 255, 0.003);
-    border: 0.5px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(2px);
-    border-radius: 15px;
-    padding: 18px;
-    width: 335px;
-    overflow: hidden;
-
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.003);
+  border: 0.5px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  border-radius: 15px;
+  padding: 18px;
+  width: 335px;
+  overflow: hidden;
 }
 
 .title {
-    display: flex;
-    align-self: flex-start;
-    align-items: center;
-    font-size: 0.65em;
-    text-transform: uppercase;
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  font-size: 0.65em;
+  text-transform: uppercase;
 }
 
 .calendar-icon {
-    width: 19px;
-    height: 18px;
-    margin-right: 5px;
+  width: 19px;
+  height: 18px;
+  margin-right: 5px;
 }
 
 hr {
-    flex-grow: 1;
-    width: 100%;
-    opacity: 0.2;
-    border-width: 0.2px;
-    background-color: white;
-    margin-top: 8px;
+  flex-grow: 1;
+  width: 100%;
+  opacity: 0.2;
+  border-width: 0.2px;
+  background-color: white;
+  margin-top: 8px;
 }
 
 .forecast {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    gap: 24px;
-    font-size: 1.1em;
-    margin-top: 14px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  gap: 24px;
+  font-size: 1.1em;
+  margin-top: 14px;
 }
 
 .forecast--wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
 }
 
 .day {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    gap: 24px;
-    height: 136px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  height: 136px;
 }
 
 .temp {
-    font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 .weather-img {
-    height: 28px;
+  height: 28px;
 }
