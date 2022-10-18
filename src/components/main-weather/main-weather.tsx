@@ -1,11 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import {
+  JSXElementConstructor,
+  ReactElement,
+  ReactFragment,
+  ReactPortal,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./main-weather.module.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function MainWeather(props) {
+function MainWeather(props: {
+  currentWeather: {
+    locationName: string;
+    temperature: number;
+    condition: string;
+    high: number;
+    low: number;
+  };
+}) {
   const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,10 +55,14 @@ function MainWeather(props) {
     <div ref={comp} className={styles["main-weather--container"]}>
       <div className={styles["main-weather"]}>
         <h1>{props.currentWeather.locationName}</h1>
-        <p className={styles.temperature}>{props.currentWeather.temperature}°</p>
+        <p className={styles.temperature}>
+          {props.currentWeather.temperature}°
+        </p>
         <div className={styles["divider"]}></div>
         <p className={styles.condition}>{props.currentWeather.condition}</p>
-        <p className={styles.highlow}>H:{props.currentWeather.high}° L:{props.currentWeather.high}°</p>
+        <p className={styles.highlow}>
+          H:{props.currentWeather.high}° L:{props.currentWeather.high}°
+        </p>
       </div>
     </div>
   );

@@ -46,13 +46,28 @@ const MOCK_UV = [
   },
 ];
 
+// type hourlyElement = {
+//   label: string,
+//   temperature: number,
+//   condition: string,
+// }
+
+// type dayElement = {
+//   label: string,
+//   temperature: number,
+//   condition: string,
+//   humidity: number,
+//   min: number,
+//   max: number,
+// }
+
 export const generateMockWeather = () => {
   const conditionNow = getRandomArrayItems(MOCK_WEATHER, 1, false);
   const tempNow = getRandomInteger(0, 30);
   const UVNow = getRandomArrayItems(MOCK_UV, 1, false);
   const mockWeather = {
     weatherNow: {
-      locationName: getRandomArrayItems(MOCK_CITIES, 1, false),
+      locationName: getRandomArrayItems(MOCK_CITIES, 1, false)[0],
       temperature: tempNow,
       condition: conditionNow[0].name,
       high: getRandomInteger(0, 30),

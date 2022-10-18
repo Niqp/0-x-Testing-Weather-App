@@ -13,8 +13,8 @@ function App() {
       <MainWeather currentWeather={weather.weatherNow} />
       <div className={styles.scroll}>
         <HourlyForecast hourly={weather.hourly} />
-        <EightDayForecast eightDays={weather.eightDays}/>
-        <MoreInfo moreData={weather.moreData}/>
+        <EightDayForecast eightDays={weather.eightDays} />
+        <MoreInfo moreData={weather.moreData} />
         <div className={styles.wrapper}></div>
       </div>
     </main>

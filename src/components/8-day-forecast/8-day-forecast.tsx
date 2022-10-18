@@ -5,7 +5,16 @@ import styles from "./8-day-forecast.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function EightDayForecast(props) {
+function EightDayForecast(props: {
+  eightDays: {
+    label: string;
+    temperature: number;
+    condition: string;
+    humidity: number;
+    min: number;
+    max: number;
+  }[];
+}) {
   const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -13,7 +13,34 @@ import styles from "./more-info.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function MoreInfo(props) {
+function MoreInfo(props: {
+  moreData: {
+    uVIndex: {
+      number: number;
+      text: string;
+      restOfDay: string;
+    };
+    sunrise: {
+      time: number;
+      sunset: number;
+    };
+    wind: {
+      deg: number;
+    };
+    rainfall: {
+      current: number;
+      next: number;
+    };
+    feelsLike: {
+      current: number;
+      isSimilar: boolean;
+    };
+    humidity: {
+      current: number;
+      dew: number;
+    };
+  };
+}) {
   const comp = useRef(null);
 
   // useEffect(() => {
@@ -50,7 +77,9 @@ function MoreInfo(props) {
           <div className={styles["more-info--content"]}>
             <h3>{props.moreData.uVIndex.number}</h3>
             <div className={styles.text}>
-              <p className={styles["bottom-large-text"]}>{props.moreData.uVIndex.text}</p>
+              <p className={styles["bottom-large-text"]}>
+                {props.moreData.uVIndex.text}
+              </p>
               <p className={styles["bottom-small-text"]}>
                 {props.moreData.uVIndex.restOfDay} for the rest of the day
               </p>
@@ -66,7 +95,9 @@ function MoreInfo(props) {
             <h3>{props.moreData.sunrise.time}:00AM</h3>
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}></p>
-              <p className={styles["bottom-small-text"]}>Sunset {props.moreData.sunrise.sunset}:10PM</p>
+              <p className={styles["bottom-small-text"]}>
+                Sunset {props.moreData.sunrise.sunset}:10PM
+              </p>
             </div>
           </div>
         </div>
@@ -77,7 +108,13 @@ function MoreInfo(props) {
           </div>
           <div className={styles["more-info--content"]}>
             <img className={styles["wind-image"]} src={WindImage} />
-            <img className={styles["wind-arrow"]} src={WindArrow} style={{transform: `scale(0.85) rotate(${props.moreData.wind.deg}deg)`}} />
+            <img
+              className={styles["wind-arrow"]}
+              src={WindArrow}
+              style={{
+                transform: `scale(0.85) rotate(${props.moreData.wind.deg}deg)`,
+              }}
+            />
           </div>
         </div>
         <div className={styles["more-info--block"]}>
@@ -90,7 +127,7 @@ function MoreInfo(props) {
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}>in last 24h</p>
               <p className={styles["bottom-small-text"]}>
-              {props.moreData.rainfall.next}mm expected in next 24h.
+                {props.moreData.rainfall.next}mm expected in next 24h.
               </p>
             </div>
           </div>
@@ -105,7 +142,9 @@ function MoreInfo(props) {
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}></p>
               <p className={styles["bottom-small-text"]}>
-              {props.moreData.feelsLike.current ? "Similar to the actual temperature" : "Not similar to the actual temperature"}
+                {props.moreData.feelsLike.current
+                  ? "Similar to the actual temperature"
+                  : "Not similar to the actual temperature"}
               </p>
             </div>
           </div>
