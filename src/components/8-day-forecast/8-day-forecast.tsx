@@ -10,7 +10,6 @@ function EightDayForecast(props: {
     label: string;
     temperature: number;
     condition: string;
-    humidity: number;
     min: number;
     max: number;
   }[];
@@ -47,15 +46,12 @@ function EightDayForecast(props: {
         {/* <hr /> */}
         <div className={styles["forecast--wrapper"]}>
           <ul className={styles.forecast}>
-            {props.eightDays.map((entry) => {
+            {props.eightDays.map((entry,index) => {
               return (
-                <li className={styles.day}>
+                <li className={styles.day} key={index}>
                   <p className={styles.label}>{entry.label}</p>
                   <div className={styles["icon-and-humidity"]}>
                     <img src={entry.condition} />
-                    <p className={styles.humidity}>
-                      {entry.humidity !== 0 ? `${entry.humidity}%` : ""}
-                    </p>
                   </div>
                   <p className={styles["temp-min"]}>{entry.min}°</p>
                   <div className={styles["empty-bar"]}></div>

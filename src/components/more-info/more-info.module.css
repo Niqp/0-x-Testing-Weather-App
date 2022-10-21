@@ -31,7 +31,7 @@
   display: flex;
   flex-grow: 1;
   flex-flow: column nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
 }
 
@@ -74,6 +74,6 @@
 
 .wind-arrow {
   position: absolute;
-  top: 46.5%;
-  left: 1px;
+  top: -110px;
+  left: 55px
 }

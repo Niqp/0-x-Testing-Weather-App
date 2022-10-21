@@ -43,9 +43,9 @@ function HourlyForecast(props: {
         <hr />
         <div className={styles["forecast--wrapper"]}>
           <ul className={styles.forecast}>
-            {props.hourly.map((entry) => {
+            {props.hourly.map((entry,index) => {
               return (
-                <li className={styles.day}>
+                <li className={styles.day} key={index}>
                   <p>{entry.label}</p>
                   <img
                     className={styles["weather-img"]}

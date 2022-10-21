@@ -21,8 +21,8 @@ function MoreInfo(props: {
       restOfDay: string;
     };
     sunrise: {
-      time: number;
-      sunset: number;
+      time: string;
+      sunset: string;
     };
     wind: {
       deg: number;
@@ -92,11 +92,11 @@ function MoreInfo(props: {
             <h2>Sunrise</h2>
           </div>
           <div className={styles["more-info--content"]}>
-            <h3>{props.moreData.sunrise.time}:00AM</h3>
+            <h3>{props.moreData.sunrise.time}</h3>
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}></p>
               <p className={styles["bottom-small-text"]}>
-                Sunset {props.moreData.sunrise.sunset}:10PM
+                Sunset {props.moreData.sunrise.sunset}
               </p>
             </div>
           </div>
@@ -112,7 +112,8 @@ function MoreInfo(props: {
               className={styles["wind-arrow"]}
               src={WindArrow}
               style={{
-                transform: `scale(0.85) rotate(${props.moreData.wind.deg}deg)`,
+                transform: `scale(0.33) rotate(${props.moreData.wind.deg}deg)`,
+                // ${props.moreData.wind.deg}
               }}
             />
           </div>
@@ -138,7 +139,7 @@ function MoreInfo(props: {
             <h2>Feels like</h2>
           </div>
           <div className={styles["more-info--content"]}>
-            <h3>{props.moreData.feelsLike.current}%</h3>
+            <h3>{props.moreData.feelsLike.current}°</h3>
             <div className={styles.text}>
               <p className={styles["bottom-large-text"]}></p>
               <p className={styles["bottom-small-text"]}>

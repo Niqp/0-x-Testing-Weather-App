@@ -8,7 +8,7 @@
 .hourly-forecast {
   display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  align-items: center;
   flex-grow: 1;
   background: rgba(255, 255, 255, 0.003);
   border: 0.5px solid rgba(255, 255, 255, 0.05);
@@ -73,5 +73,5 @@ hr {
 }
 
 .weather-img {
-  height: 28px;
+  height: 45px;
 }
