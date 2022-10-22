@@ -70,8 +70,8 @@ export const generateMockWeather = () => {
       locationName: getRandomArrayItems(MOCK_CITIES, 1, false)[0],
       temperature: tempNow,
       condition: conditionNow[0].name,
-      high: getRandomInteger(0, 30),
-      low: getRandomInteger(0, 30),
+      max: getRandomInteger(0, 30),
+      min: getRandomInteger(0, 30),
     },
     hourly: [
       {

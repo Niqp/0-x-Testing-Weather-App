@@ -1,12 +1,4 @@
-import {
-  JSXElementConstructor,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef } from "react";
 import styles from "./main-weather.module.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,37 +10,39 @@ function MainWeather(props: {
     locationName: string;
     temperature: number;
     condition: string;
-    high: number;
-    low: number;
+    max: number;
+    min: number;
   };
 }) {
   const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.to(`.${styles["main-weather"]}`, {
-        height: "100px",
-        scrollTrigger: {
-          trigger: `.${styles["main-weather"]}`,
-          start: "top 5px",
-          end: "70",
-          scrub: 1,
-          onEnter: () => {
-            if (comp !== null) {
-              comp.current?.firstElementChild?.classList.add(
+    if (document.documentElement.clientWidth <= 500) {
+      let ctx = gsap.context(() => {
+        gsap.to(`.${styles["main-weather"]}`, {
+          height: "100px",
+          scrollTrigger: {
+            trigger: `.${styles["main-weather"]}`,
+            start: "top 5px",
+            end: "70",
+            scrub: 1,
+            onEnter: () => {
+              if (comp !== null) {
+                comp.current?.firstElementChild?.classList.add(
+                  `${styles["main-weather--compact"]}`
+                );
+              }
+            },
+            onLeaveBack: () => {
+              comp.current?.firstElementChild?.classList.remove(
                 `${styles["main-weather--compact"]}`
               );
-            }
+            },
           },
-          onLeaveBack: () => {
-            comp.current?.firstElementChild?.classList.remove(
-              `${styles["main-weather--compact"]}`
-            );
-          },
-        },
-      });
-    }, comp);
-    return () => ctx.revert();
+        });
+      }, comp);
+      return () => ctx.revert();
+    }
   }, []);
 
   return (
@@ -61,7 +55,7 @@ function MainWeather(props: {
         <div className={styles["divider"]}></div>
         <p className={styles.condition}>{props.currentWeather.condition}</p>
         <p className={styles.highlow}>
-          H:{props.currentWeather.high}° L:{props.currentWeather.high}°
+          H:{props.currentWeather.max}° L:{props.currentWeather.min}°
         </p>
       </div>
     </div>

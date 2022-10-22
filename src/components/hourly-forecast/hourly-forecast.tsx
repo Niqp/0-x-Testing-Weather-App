@@ -15,6 +15,7 @@ function HourlyForecast(props: {
   const comp = useRef(null);
 
   useEffect(() => {
+    if (document.documentElement.clientWidth <= 500) {
     let ctx = gsap.context(() => {
       let tl = gsap.timeline({
         scrollTrigger: {
@@ -31,6 +32,7 @@ function HourlyForecast(props: {
       );
     }, comp);
     return () => ctx.revert();
+  }
   }, []);
 
   return (

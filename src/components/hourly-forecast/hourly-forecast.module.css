@@ -5,6 +5,13 @@
   overflow: hidden;
 }
 
+@media screen and (min-width: 500px) {
+  .hourly-forecast--container {
+    position:static;
+    margin-top: 0;
+  }
+}
+
 .hourly-forecast {
   display: flex;
   flex-flow: column nowrap;

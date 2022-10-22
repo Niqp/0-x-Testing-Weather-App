@@ -5,6 +5,14 @@
   overflow: hidden;
 }
 
+@media screen and (min-width: 500px) {
+  .ten-day-forecast--container {
+    position:static;
+    margin-top: 0;
+  }
+}
+
+
 .ten-day-forecast {
   display: flex;
   flex-flow: column nowrap;

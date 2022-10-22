@@ -3,11 +3,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(180deg, #011e33 0%, rgba(61, 53, 81, 0.8) 100%);
-  background-attachment: fixed;
-  min-height: 100vh;
   font-family: "Source Sans Pro", sans-serif;
   color: white;
+}
+
+.background {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  z-index: -1;
 }
 
 .scroll {
@@ -18,7 +25,17 @@
   /* position: absolute; */
   /* top: 0px; */
   /* height: 1600px; */
-  margin-top: 250px;
+  margin-top: 300px;
+}
+
+@media screen and (min-width: 500px) {
+  .scroll {
+    max-height: 70vh;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 70vw;
+    align-items: center;
+  }
 }
 
 .wrapper {
@@ -36,4 +53,5 @@
 .loading {
   margin-top: 200px;
   font-size: 2em;
+  width: 200px;
 }

@@ -6,6 +6,12 @@ import {
 } from "../const";
 import { getRandomInteger } from "../utils/utils";
 
+const API_ID = "df8a98e21831005c433b5a51e5e9cfd4";
+
+const generateAPILink = (latitude: number,longitude: number) => {
+  return `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,alerts&appid=${API_ID}`
+}
+
 const parseTimezoneToCity = (timezone: string) => {
   const stringArray = timezone.split("/");
   return stringArray[stringArray.length - 1].replace("_", " ");
@@ -73,8 +79,8 @@ const adaptToClient = (data: any) => {
       locationName: parseTimezoneToCity(data.timezone),
       temperature: currentTemp,
       condition: capitalizeFirstLetter(data.current.weather[0].description),
-      high: Math.round(data.daily[0].temp.min),
-      low: Math.round(data.daily[0].temp.max),
+      max: Math.round(data.daily[0].temp.max),
+      min: Math.round(data.daily[0].temp.min),
     },
     hourly: new Array(HOURLY_HOURS_SHOWN).fill(null).map((hour, index) => {
       if (index === 0) {
@@ -144,7 +150,8 @@ const adaptToClient = (data: any) => {
   return adaptedWeather;
 };
 
-export const getWeather = async (url: string) => {
+export const getWeather = async (lat: number, lon: number) => {
+  const url = generateAPILink(lat,lon);
   const response = await fetch(url);
   const weather = await response.json();
   return adaptToClient(weather);

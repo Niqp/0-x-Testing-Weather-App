@@ -5,6 +5,15 @@
   top: 200px;
 }
 
+@media screen and (min-width: 500px) {
+  .more-info--container {
+    position:static;
+    margin-top: 0;
+
+  }
+}
+
+
 .more-info {
   display: flex;
   flex-flow: row wrap;
@@ -42,7 +51,7 @@
   font-size: 0.65em;
   text-transform: uppercase;
   margin-bottom: 2px;
-  color: gray;
+  /* color: gray; */
 }
 
 .icon {

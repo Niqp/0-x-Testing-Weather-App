@@ -17,23 +17,25 @@ function EightDayForecast(props: {
   const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: `.${styles["ten-day-forecast"]}`,
-          start: "top 370px",
-          end: "+=100",
-          scrub: 1,
-          fastScrollEnd: 500,
-        },
-      });
+    if (document.documentElement.clientWidth <= 500) {
+      let ctx = gsap.context(() => {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: `.${styles["ten-day-forecast"]}`,
+            start: "top 370px",
+            end: "+=100",
+            scrub: 1,
+            fastScrollEnd: 500,
+          },
+        });
 
-      tl.to(`.${styles["forecast--wrapper"]}`, {
-        height: "0px",
-        duration: 2,
-      }).to(`.${styles["ten-day-forecast"]}`, { opacity: 0, duration: 1 });
-    }, comp);
-    return () => ctx.revert();
+        tl.to(`.${styles["forecast--wrapper"]}`, {
+          height: "0px",
+          duration: 2,
+        }).to(`.${styles["ten-day-forecast"]}`, { opacity: 0, duration: 1 });
+      }, comp);
+      return () => ctx.revert();
+    }
   }, []);
 
   return (
@@ -46,7 +48,7 @@ function EightDayForecast(props: {
         {/* <hr /> */}
         <div className={styles["forecast--wrapper"]}>
           <ul className={styles.forecast}>
-            {props.eightDays.map((entry,index) => {
+            {props.eightDays.map((entry, index) => {
               return (
                 <li className={styles.day} key={index}>
                   <p className={styles.label}>{entry.label}</p>
