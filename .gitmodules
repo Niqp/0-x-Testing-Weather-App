@@ -1,0 +1,3 @@
+[submodule "dist"]
+    path = dist
+    url = git://github.com/niqp/0-x-Testing-Weather-App.git
