@@ -4,6 +4,7 @@ import CloudMoonIcon from "../../assets/icons/cloudmoon.png";
 import styles from "./8-day-forecast.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CLIENT_WIDTH } from "../../const";
 
 function EightDayForecast(props: {
   eightDays: {
@@ -17,22 +18,24 @@ function EightDayForecast(props: {
   const comp = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (document.documentElement.clientWidth <= 500) {
+    if (document.documentElement.clientWidth <= CLIENT_WIDTH) {
       let ctx = gsap.context(() => {
         let tl = gsap.timeline({
           scrollTrigger: {
             trigger: `.${styles["ten-day-forecast"]}`,
             start: "top 370px",
-            end: "+=100",
+            end: "bottom 370px",
             scrub: 1,
             fastScrollEnd: 500,
           },
         });
 
-        tl.to(`.${styles["forecast--wrapper"]}`, {
-          height: "0px",
-          duration: 2,
-        }).to(`.${styles["ten-day-forecast"]}`, { opacity: 0, duration: 1 });
+              // TODO: figure out how to fix the animation
+              // to(`.${styles["forecast--wrapper"]}`, {
+              //   height: "0px",
+              //   duration: 2,
+              // })
+        tl.to(`.${styles["ten-day-forecast"]}`, { opacity: 0.8, duration: 1 }).to(`.${styles["ten-day-forecast"]}`, { opacity: 0, duration: 1 });
       }, comp);
       return () => ctx.revert();
     }

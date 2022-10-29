@@ -4,6 +4,10 @@ export const DAILY_DAYS_SHOWN = 8;
 
 export const FEELS_LIKE_RELATIVE_NUMBER = 5;
 
+export const HOURS_TO_REFRESH = 1;
+
+export const CLIENT_WIDTH = 500;
+
 export enum DAY_NAMES {
     'Mon',
     'Tue',

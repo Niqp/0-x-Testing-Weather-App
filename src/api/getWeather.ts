@@ -65,6 +65,7 @@ const getSunTime = (date: Date) => {
 };
 
 const adaptToClient = (data: any) => {
+  console.log(data);
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
   const currentDay = currentDate.getDay();

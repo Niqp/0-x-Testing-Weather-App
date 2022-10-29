@@ -31,10 +31,11 @@
 @media screen and (min-width: 500px) {
   .scroll {
     max-height: 70vh;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     gap: 15px;
-    width: 70vw;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    /* width: 70vw; */
   }
 }
 

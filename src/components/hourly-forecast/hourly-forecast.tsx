@@ -4,6 +4,7 @@ import CloudMoonIcon from "../../assets/icons/cloudmoon.png";
 import styles from "./hourly-forecast.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CLIENT_WIDTH } from "../../const";
 
 function HourlyForecast(props: {
   hourly: {
@@ -15,18 +16,20 @@ function HourlyForecast(props: {
   const comp = useRef(null);
 
   useEffect(() => {
-    if (document.documentElement.clientWidth <= 500) {
+    if (document.documentElement.clientWidth <= CLIENT_WIDTH) {
     let ctx = gsap.context(() => {
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: `.${styles["hourly-forecast"]}`,
           start: "top 200px",
-          end: "center 230",
+          end: "bottom 200",
           scrub: 1,
           fastScrollEnd: 500,
         },
       });
-      tl.to(`.${styles["forecast--wrapper"]}`, { height: "0px" }).to(
+      // TODO: figure out how to fix the animation
+      // .to(`.${styles["forecast--wrapper"]}`, { height: "0px" }).
+      tl.to(
         `.${styles["hourly-forecast"]}`,
         { opacity: 0 }
       );
